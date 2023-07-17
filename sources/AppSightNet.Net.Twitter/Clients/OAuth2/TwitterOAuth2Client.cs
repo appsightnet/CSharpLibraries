@@ -1,4 +1,4 @@
-﻿using AppSightNet.Net.Twitter.Schemas.OAuth2;
+﻿using AppSightNet.Net.Twitter.Schemas;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Json;
@@ -15,7 +15,7 @@ public class TwitterOAuth2Client
     }
 
     public async Task<RefreshAccessTokenResult> IssueAccessTokenAsync(
-        TwitterOAuth2Settings authSettings,
+        TwitterAuthSettings authSettings,
         string code,
         CancellationToken cancellationToken = default
     )
@@ -63,7 +63,7 @@ public class TwitterOAuth2Client
     }
 
     public async Task<RefreshAccessTokenResult> RefreshAccessTokenAsync(
-        TwitterOAuth2Settings authSettings,
+        TwitterAuthSettings authSettings,
         string refreshToken,
         CancellationToken cancellationToken = default
     )

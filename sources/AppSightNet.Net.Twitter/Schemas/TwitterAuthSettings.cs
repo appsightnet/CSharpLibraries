@@ -1,6 +1,6 @@
-﻿namespace AppSightNet.Net.Twitter.Schemas.OAuth2
+﻿namespace AppSightNet.Net.Twitter.Schemas
 {
-    public record class TwitterOAuth2Settings
+    public record class TwitterAuthSettings
     {
         public string ClientId { get; init; } = string.Empty;
 
@@ -16,9 +16,9 @@
 
         public string Scope { get; init; } = string.Empty;
 
-        public TwitterOAuth2Settings() { }
+        public TwitterAuthSettings() { }
 
-        public TwitterOAuth2Settings(
+        public TwitterAuthSettings(
             string clientId,
             string clientSecret,
             string apiKey,
