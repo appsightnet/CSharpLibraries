@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace AppSightNet.DataAccess.Azure.Cosmos.Stores;
+namespace AppSightNet.DataAccess.Azure.Cosmos.Stores.Extensions;
 
 public static class CosmosStoreServiceCollectionExtensions
 {
