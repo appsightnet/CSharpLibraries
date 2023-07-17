@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,13 +7,20 @@
     <Authors>yopiidev</Authors>
     <Company />
     <Product>AppSightNet</Product>
-    <Description>Text library for .NET</Description>
+    <Description>Azure Cosmos library for .NET</Description>
     <RepositoryUrl>https://github.com/appsightnet/CSharpLibraries</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/appsightnet/CSharpLibraries</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright>appsight.net</Copyright>
-    <Version>0.0.1-alpha</Version>
+    <Version>0.0.2-alpha</Version>
   </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.35.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+  </ItemGroup>
 
 </Project>
