@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,7 +7,7 @@
     <Authors>yopiidev</Authors>
     <Company />
     <Product>AppSightNet</Product>
-    <Description>Text library for .NET</Description>
+    <Description>Azure Functions library for .NET</Description>
     <RepositoryUrl>https://github.com/appsightnet/CSharpLibraries</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/appsightnet/CSharpLibraries</PackageProjectUrl>
@@ -15,5 +15,11 @@
     <Copyright>appsight.net</Copyright>
     <Version>0.0.1-alpha</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AppSightNet.Text" Version="0.0.1-alpha" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.17.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+  </ItemGroup>
 
 </Project>
