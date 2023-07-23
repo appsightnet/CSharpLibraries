@@ -14,7 +14,7 @@ public class TwitterOAuth2Client
         this._httpClient = httpClient;
     }
 
-    public async Task<RefreshAccessTokenResult> IssueAccessTokenAsync(
+    public async Task<RefreshAccessTokenResponse> IssueAccessTokenAsync(
         TwitterAuthSettings authSettings,
         string code,
         CancellationToken cancellationToken = default
@@ -48,21 +48,21 @@ public class TwitterOAuth2Client
             .ConfigureAwait(false);
         response.EnsureSuccessStatusCode();
 
-        var tokenResult =
-            JsonSerializer.Deserialize<RefreshAccessTokenResult>(
+        var tokenResponse =
+            JsonSerializer.Deserialize<RefreshAccessTokenResponse>(
                 await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)
             )
             ?? throw new JsonException(
-                $"Result of deserialization to '{nameof(RefreshAccessTokenResult)}' was null."
+                $"Result of deserialization to '{nameof(RefreshAccessTokenResponse)}' was null."
             );
 
-        var validationContext = new ValidationContext(tokenResult);
-        Validator.ValidateObject(tokenResult, validationContext);
+        var validationContext = new ValidationContext(tokenResponse);
+        Validator.ValidateObject(tokenResponse, validationContext);
 
-        return tokenResult;
+        return tokenResponse;
     }
 
-    public async Task<RefreshAccessTokenResult> RefreshAccessTokenAsync(
+    public async Task<RefreshAccessTokenResponse> RefreshAccessTokenAsync(
         TwitterAuthSettings authSettings,
         string refreshToken,
         CancellationToken cancellationToken = default
@@ -94,17 +94,17 @@ public class TwitterOAuth2Client
             .ConfigureAwait(false);
         response.EnsureSuccessStatusCode();
 
-        var tokenResult =
-            JsonSerializer.Deserialize<RefreshAccessTokenResult>(
+        var tokenResponse =
+            JsonSerializer.Deserialize<RefreshAccessTokenResponse>(
                 await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)
             )
             ?? throw new JsonException(
-                $"Result of deserialization to '{nameof(RefreshAccessTokenResult)}' was null."
+                $"Result of deserialization to '{nameof(RefreshAccessTokenResponse)}' was null."
             );
 
-        var validationContext = new ValidationContext(tokenResult);
-        Validator.ValidateObject(tokenResult, validationContext);
+        var validationContext = new ValidationContext(tokenResponse);
+        Validator.ValidateObject(tokenResponse, validationContext);
 
-        return tokenResult;
+        return tokenResponse;
     }
 }

@@ -27,41 +27,35 @@ public record class TwitterOAuth2AccessToken
         this.RefreshToken = refreshToken;
     }
 
-    public static TwitterOAuth2AccessToken FromRefreshTokenResult( // TODO: Migrate to extensions
-        RefreshAccessTokenResult refreshTokenResult
+    public static TwitterOAuth2AccessToken FromRefreshTokenResponse( // TODO: Migrate to extensions
+        RefreshAccessTokenResponse response
     )
     {
-        if (refreshTokenResult.TokenType != "bearer")
+        if (response.TokenType != "bearer")
         {
-            throw new ArgumentException(
-                $"Invalid token type '{refreshTokenResult.TokenType}' was provided."
-            );
+            throw new ArgumentException($"Invalid token type '{response.TokenType}' was provided.");
         }
 
-        if (string.IsNullOrEmpty(refreshTokenResult.AccessToken))
+        if (string.IsNullOrEmpty(response.AccessToken))
         {
-            throw new ArgumentException(
-                $"{nameof(refreshTokenResult.AccessToken)} must be provided."
-            );
+            throw new ArgumentException($"{nameof(response.AccessToken)} must be provided.");
         }
 
-        if (string.IsNullOrEmpty(refreshTokenResult.RefreshToken))
+        if (string.IsNullOrEmpty(response.RefreshToken))
         {
-            throw new ArgumentException(
-                $"{nameof(refreshTokenResult.RefreshToken)} must be provided."
-            );
+            throw new ArgumentException($"{nameof(response.RefreshToken)} must be provided.");
         }
 
-        if (string.IsNullOrEmpty(refreshTokenResult.Scope))
+        if (string.IsNullOrEmpty(response.Scope))
         {
-            throw new ArgumentException($"{nameof(refreshTokenResult.Scope)} must be provided.");
+            throw new ArgumentException($"{nameof(response.Scope)} must be provided.");
         }
 
         return new TwitterOAuth2AccessToken(
-            expiresAt: DateTimeOffset.Now + TimeSpan.FromSeconds(refreshTokenResult.ExpiresIn),
-            token: refreshTokenResult.AccessToken,
-            scope: refreshTokenResult.Scope,
-            refreshToken: refreshTokenResult.RefreshToken
+            expiresAt: DateTimeOffset.Now + TimeSpan.FromSeconds(response.ExpiresIn),
+            token: response.AccessToken,
+            scope: response.Scope,
+            refreshToken: response.RefreshToken
         );
     }
 }

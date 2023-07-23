@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace AppSightNet.Net.Twitter.Clients.Api.V2;
 
-public class CreateTweetResult
+public class CreateTweetResponse
 {
     [JsonPropertyName("data")]
     [Required]
