@@ -12,7 +12,7 @@ public class TwitterApiClient
         this._httpClient = httpClient;
     }
 
-    public async Task<CreateTweetResult> CreateTweetAsync(
+    public async Task<CreateTweetResponse> CreateTweetAsync(
         string message,
         CancellationToken cancellationToken = default
     )
@@ -31,9 +31,9 @@ public class TwitterApiClient
             .ReadAsStringAsync(cancellationToken)
             .ConfigureAwait(false);
 
-        return JsonSerializer.Deserialize<CreateTweetResult>(responseContentJson)
+        return JsonSerializer.Deserialize<CreateTweetResponse>(responseContentJson)
             ?? throw new JsonException(
-                $"Result of deserialization to '{nameof(CreateTweetResult)}' was null."
+                $"Response of deserialization to '{nameof(CreateTweetResponse)}' was null."
             );
     }
 }
