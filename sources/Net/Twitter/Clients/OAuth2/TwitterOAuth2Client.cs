@@ -99,7 +99,7 @@ public class TwitterOAuth2Client
                 await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)
             )
             ?? throw new JsonException(
-                $"Response of deserialization to '{nameof(RefreshAccessTokenResponse)}' was null."
+                $"Result of deserialization to '{nameof(RefreshAccessTokenResponse)}' was null."
             );
 
         var validationContext = new ValidationContext(tokenResponse);

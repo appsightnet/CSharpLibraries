@@ -33,7 +33,7 @@ public class TwitterApiClient
 
         return JsonSerializer.Deserialize<CreateTweetResponse>(responseContentJson)
             ?? throw new JsonException(
-                $"Response of deserialization to '{nameof(CreateTweetResponse)}' was null."
+                $"Result of deserialization to '{nameof(CreateTweetResponse)}' was null."
             );
     }
 }

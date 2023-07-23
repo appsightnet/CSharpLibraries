@@ -13,7 +13,7 @@
     <PackageProjectUrl>https://github.com/appsightnet/CSharpLibraries</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright>appsight.net</Copyright>
-    <Version>0.0.6-alpha</Version>
+    <Version>0.0.6-alpha.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
