@@ -5,7 +5,7 @@ using AppSightNet.Functions.Azure.Options;
 using AppSightNet.Text.Json;
 using Microsoft.AspNetCore.Http;
 using System.Text;
-using AppSightNet.Functions.Azure.Schemas;
+using AppSightNet.Functions.Azure.Models;
 
 namespace AppSightNet.Functions.Azure.Services;
 

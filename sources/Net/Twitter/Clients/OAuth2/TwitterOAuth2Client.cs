@@ -1,4 +1,4 @@
-﻿using AppSightNet.Net.Twitter.Schemas;
+﻿using AppSightNet.Net.Twitter.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Json;

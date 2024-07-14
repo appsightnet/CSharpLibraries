@@ -1,4 +1,4 @@
-﻿using AppSightNet.Functions.Azure.Schemas;
+﻿using AppSightNet.Functions.Azure.Models;
 
 namespace AppSightNet.Functions.Azure.Services;
 

@@ -1,4 +1,4 @@
-﻿namespace AppSightNet.Functions.Azure.Schemas;
+﻿namespace AppSightNet.Functions.Azure.Models;
 
 public interface IProcessingState
 {

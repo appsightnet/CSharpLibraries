@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Authors>yopiidev</Authors>
@@ -13,12 +13,18 @@
     <PackageProjectUrl>https://github.com/appsightnet/CSharpLibraries</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright>appsight.net</Copyright>
-    <Version>0.0.1-alpha</Version>
+    <Version>0.1.0-alpha</Version>
+	  <PackageReleaseNotes>
+		  Change target framework from net 6.0 to net8.0.
+		  - Upgrade TargetFramework to net8.0.
+		  - Upgrade dependency packages.
+		  - Refactor model namespaces.
+	  </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AppSightNet.Text" Version="0.0.1-alpha" />
-    <PackageReference Include="Azure.Storage.Blobs" Version="12.17.0" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.20.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
   </ItemGroup>
 

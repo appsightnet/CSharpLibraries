@@ -1,6 +1,6 @@
 ﻿using AppSightNet.Net.Twitter.Clients.OAuth2;
 
-namespace AppSightNet.Net.Twitter.Schemas.OAuth2;
+namespace AppSightNet.Net.Twitter.Models.OAuth2;
 
 public record class TwitterOAuth2AccessToken
 {
