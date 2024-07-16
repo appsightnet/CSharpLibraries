@@ -14,10 +14,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright>appsight.net</Copyright>
     <Version>0.1.0-alpha</Version>
-	  <PackageReleaseNotes>
-		  Change target framework from net 6.0 to net8.0.
-		  - Upgrade TargetFramework to net8.0.
-	  </PackageReleaseNotes>
+    <PackageReleaseNotes>
+      Change target framework from net 6.0 to net8.0.
+      - Upgrade TargetFramework to net8.0
+    </PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>

@@ -3,9 +3,9 @@ using Azure;
 using System.Text.Json;
 using AppSightNet.Functions.Azure.Options;
 using AppSightNet.Text.Json;
-using Microsoft.AspNetCore.Http;
 using System.Text;
 using AppSightNet.Functions.Azure.Models;
+using System.Net;
 
 namespace AppSightNet.Functions.Azure.Services;
 
@@ -33,7 +33,7 @@ public class BlobProcessingStateService<TState> : IProcessingStateService<TState
         {
             return await this.GetAsync(key, cancellationToken).ConfigureAwait(false);
         }
-        catch (RequestFailedException ex) when (ex.Status == StatusCodes.Status404NotFound)
+        catch (RequestFailedException ex) when (ex.Status == (int)HttpStatusCode.NotFound)
         {
             return default;
         }
