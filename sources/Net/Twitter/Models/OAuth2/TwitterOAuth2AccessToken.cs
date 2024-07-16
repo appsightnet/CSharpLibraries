@@ -27,8 +27,8 @@ public record class TwitterOAuth2AccessToken
         this.RefreshToken = refreshToken;
     }
 
-    public static TwitterOAuth2AccessToken FromRefreshTokenResponse( // TODO: Migrate to extensions
-        RefreshAccessTokenResponse response
+    public static TwitterOAuth2AccessToken FromIssueTokenResponse( // TODO: Migrate to extensions
+        TwitterOAuth2IssueTokenResponse response
     )
     {
         if (response.TokenType != "bearer")

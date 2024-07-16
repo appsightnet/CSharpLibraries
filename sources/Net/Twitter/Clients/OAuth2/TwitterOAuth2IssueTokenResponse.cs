@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace AppSightNet.Net.Twitter.Clients.OAuth2;
 
-public class RefreshAccessTokenResponse
+public class TwitterOAuth2IssueTokenResponse
 {
     [JsonPropertyName("token_type")]
     [Required]

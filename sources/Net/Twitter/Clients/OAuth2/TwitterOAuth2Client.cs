@@ -14,7 +14,7 @@ public class TwitterOAuth2Client
         this._httpClient = httpClient;
     }
 
-    public async Task<RefreshAccessTokenResponse> IssueAccessTokenAsync(
+    public async Task<TwitterOAuth2IssueTokenResponse> IssueAccessTokenAsync(
         TwitterAuthSettings authSettings,
         string code,
         CancellationToken cancellationToken = default
@@ -49,11 +49,11 @@ public class TwitterOAuth2Client
         response.EnsureSuccessStatusCode();
 
         var tokenResponse =
-            JsonSerializer.Deserialize<RefreshAccessTokenResponse>(
+            JsonSerializer.Deserialize<TwitterOAuth2IssueTokenResponse>(
                 await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)
             )
             ?? throw new JsonException(
-                $"Result of deserialization to '{nameof(RefreshAccessTokenResponse)}' was null."
+                $"Result of deserialization to '{nameof(TwitterOAuth2IssueTokenResponse)}' was null."
             );
 
         var validationContext = new ValidationContext(tokenResponse);
@@ -62,7 +62,7 @@ public class TwitterOAuth2Client
         return tokenResponse;
     }
 
-    public async Task<RefreshAccessTokenResponse> RefreshAccessTokenAsync(
+    public async Task<TwitterOAuth2IssueTokenResponse> RefreshAccessTokenAsync(
         TwitterAuthSettings authSettings,
         string refreshToken,
         CancellationToken cancellationToken = default
@@ -95,11 +95,11 @@ public class TwitterOAuth2Client
         response.EnsureSuccessStatusCode();
 
         var tokenResponse =
-            JsonSerializer.Deserialize<RefreshAccessTokenResponse>(
+            JsonSerializer.Deserialize<TwitterOAuth2IssueTokenResponse>(
                 await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)
             )
             ?? throw new JsonException(
-                $"Result of deserialization to '{nameof(RefreshAccessTokenResponse)}' was null."
+                $"Result of deserialization to '{nameof(TwitterOAuth2IssueTokenResponse)}' was null."
             );
 
         var validationContext = new ValidationContext(tokenResponse);
