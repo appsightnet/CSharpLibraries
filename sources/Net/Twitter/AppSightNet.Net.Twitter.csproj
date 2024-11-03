@@ -13,9 +13,10 @@
     <PackageProjectUrl>https://github.com/appsightnet/CSharpLibraries</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright>appsight.net</Copyright>
-    <Version>0.1.1-alpha</Version>
+    <Version>0.2.0-alpha</Version>
     <PackageReleaseNotes>
-      Refine models related issue token.
+      Refine method interface.
+      Remove application-dependent model.
     </PackageReleaseNotes>
   </PropertyGroup>
 
