@@ -15,7 +15,9 @@ public class TwitterOAuth2Client
     }
 
     public async Task<TwitterOAuth2IssueTokenResponse> IssueAccessTokenAsync(
-        TwitterAuthSettings authSettings,
+        string clientId,
+        string clientSecret,
+        string redirectUrl,
         string code,
         CancellationToken cancellationToken = default
     )
@@ -26,13 +28,13 @@ public class TwitterOAuth2Client
             {
                 { "code", code },
                 { "grant_type", "authorization_code" },
-                { "client_id", authSettings.ClientId },
-                { "redirect_uri", authSettings.RedirectUrl.ToString() },
+                { "client_id", clientId },
+                { "redirect_uri", redirectUrl },
                 { "code_verifier", "challenge" }
             }
         );
         var base64EncodedCredentials = Convert.ToBase64String(
-            Encoding.ASCII.GetBytes($"{authSettings.ClientId}:{authSettings.ClientSecret}")
+            Encoding.ASCII.GetBytes($"{clientId}:{clientSecret}")
         );
 
         using var requestMessage = new HttpRequestMessage(HttpMethod.Post, url);
@@ -63,7 +65,8 @@ public class TwitterOAuth2Client
     }
 
     public async Task<TwitterOAuth2IssueTokenResponse> RefreshAccessTokenAsync(
-        TwitterAuthSettings authSettings,
+        string clientId,
+        string clientSecret,
         string refreshToken,
         CancellationToken cancellationToken = default
     )
@@ -74,11 +77,11 @@ public class TwitterOAuth2Client
             {
                 { "refresh_token", refreshToken },
                 { "grant_type", "refresh_token" },
-                { "client_id", authSettings.ClientId }
+                { "client_id", clientId }
             }
         );
         var base64EncodedCredentials = Convert.ToBase64String(
-            Encoding.ASCII.GetBytes($"{authSettings.ClientId}:{authSettings.ClientSecret}")
+            Encoding.ASCII.GetBytes($"{clientId}:{clientSecret}")
         );
 
         using var requestMessage = new HttpRequestMessage(HttpMethod.Post, url);
